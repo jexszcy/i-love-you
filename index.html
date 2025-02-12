@@ -197,7 +197,7 @@
                 transform: translate(-50%, -50%);
             }
             .hide-overlay{ width: 30px; height: 30px; }
-            .show-overlay{ width: 100vw; height: 100vh; overflow: hidden; }
+            .show-overlay{ width: 200vw; height: 200vh; overflow: hidden; }
 
 
             /* Others */
@@ -223,10 +223,10 @@
             /* Main Overlay */
             .main-overlay {
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
+                top: -50%;
+                left: -50%;
+                width: 200vw;
+                height: 200vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -339,6 +339,7 @@
                     mainOverlay.classList.toggle('scale-100');
                     mainOverlay.classList.toggle('scale-0');
                 }, 100);
+                if(overlay.classList.contains("hide-overlay")) getQuotes()
             });
 
             const getQuotes = async () => {
@@ -350,11 +351,11 @@
                             "x-rapidapi-key": "810bec7494msha28c63bc60317aap119619jsn3fa044b75e81"
                         }
                     });
-                    const data = await response.json();
-                    return data.quote;
-                } catch (error) { return "I love you!"; }
+                    const data = await response.json()
+                    overlayMessage.innerHTML = `"${data.quote}"`
+                } catch (error) { overlayMessage.innerHTML = "I love you!"; }
             };
-            getQuotes().then(quote => overlayMessage.innerHTML = `"${quote}"`);
+            getQuotes()
         </script>
     </body>
 
