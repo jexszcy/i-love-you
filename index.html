@@ -197,7 +197,7 @@
                 transform: translate(-50%, -50%);
             }
             .hide-overlay{ width: 30px; height: 30px; }
-            .show-overlay{ width: 200vw; height: 200vh; overflow: hidden; }
+            .show-overlay{ width: 100vw; height: 100vh; overflow: hidden; }
 
 
             /* Others */
@@ -223,17 +223,16 @@
             /* Main Overlay */
             .main-overlay {
                 position: fixed;
-                top: -50%;
-                left: -50%;
                 width: 200vw;
                 height: 200vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 z-index: 500;
+                overflow: hidden;
             }
 
-            .main-overlay img { width: 200vw; height: 200vh; object-fit: cover; overflow: hidden; }
+            .main-overlay img { width: 200vw; height: 200vh; overflow: hidden; }
         </style>
     </head>
 
